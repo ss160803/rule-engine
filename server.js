@@ -13,5 +13,12 @@ app.use(express.static('public'));
 
 app.use("/api/rules", ruleRoutes); // Make sure this line is correct
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
+if (process.env.NODE_ENV !== 'test') {
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => console.log(`Server running on port ${port}`));
+}
+
+// const port = process.env.PORT || 3000;
+// app.listen(port, () => console.log(`Server running on port ${port}`));
+
+export {app};
