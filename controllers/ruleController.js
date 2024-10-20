@@ -3,6 +3,8 @@ import { parseRuleString, evaluateAST } from "../services/ruleServices.js";
 
 export const createRule = (req, res) => {
     const { rule_name, description } = req.body;
+    console.log("Request body:", req.body);
+
     console.log("Inside createRule: ", rule_name, description);
     try {
         const ast = parseRuleString(description); // Generate AST from description
@@ -12,7 +14,8 @@ export const createRule = (req, res) => {
                 console.error("Database error:", err);
                 return res.status(500).json({ message: "Error creating rule", error: err });
             }
-            res.status(200).json({ message: "Rule created successfully", ruleId: result.insertId });
+            console.log("Rule created with ID:", result.insertId);
+            res.status(200).json({ message: "Rule created successfully with:", ruleId: result.insertId });
         });
     } catch (error) {
         console.error("Error creating rule:", error);
@@ -22,6 +25,9 @@ export const createRule = (req, res) => {
 
 export const evaluateRule = (req, res) => {
     const { ruleId, userData } = req.body;
+    console.log("Request body:", req.body);
+
+    console.log("Inside evaluateRule");
     try {
         const query = `SELECT description FROM rules WHERE id = ?`;
         db.query(query, [ruleId], (err, results) => {
@@ -36,6 +42,7 @@ export const evaluateRule = (req, res) => {
             }
         });
     } catch (error) {
+        console.error("Error evaluating rule:", error);
         res.status(500).json({ message: "Error evaluating rule", error });
     }
 };
