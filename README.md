@@ -49,6 +49,33 @@ This project implements a simple rule engine using an Abstract Syntax Tree (AST)
     "ruleId": 1,
     "userData": {"age": 35, "department": "Sales", "salary": 60000, "experience": 3}
   }
+
+## Testing
+
+This project has undergone thorough testing to ensure robust functionality. Here’s a breakdown of the testing methods employed:
+
+### 1. Unit Testing
+Unit tests ensure individual functions work as expected. I used Mocha and Chai for these tests.
+
+#### Running Unit Tests:
+1. **Install dependencies** (if not already installed):
+   ```sh
+   npm install
+2. **Run the unit tests:**
+   ```sh
+   npx mocha test/ruleService.test.js
+   
+### 2.  Integration Testing
+Integration tests validate the full flow of the application, ensuring all components work seamlessly together. We use Supertest along with Mocha and Chai for these tests.
+
+#### Running Integartion Tests:
+1. **Ensure your MySQL server is running.**
+2. **Run the integration tests:**
+   ```sh
+   npm test
+##### Test Cases: 
+- **Create Rule:** This test checks if a rule can be created and returns its ID.
+- **Evaluate Rule:** This test validates that the rule evaluation returns the correct result.
 ## Dockerfile
 Currently blank for future use. Intended for backend containerization.
 
