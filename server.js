@@ -1,12 +1,17 @@
 import express from "express";
 import bodyParser from "body-parser";
 import ruleRoutes from "./routes/ruleRoutes.js";
-import db from "./config/db.js";
 
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
-app.use("/api/rules", ruleRoutes);
+// app.post("/simple", (req, res) => {
+//     console.log("Simple POST request received");
+//     res.status(200).send("Simple POST route is working");
+// });
+
+app.use("/api/rules", ruleRoutes); // Make sure this line is correct
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
