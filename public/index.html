@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Engine</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Rule Engine</h1>
+        <form id="rule-form" class="mb-5">
+            <div class="form-group">
+                <label for="rule-name">Rule Name</label>
+                <input type="text" class="form-control" id="rule-name" placeholder="Enter rule name">
+            </div>
+            <div class="form-group">
+                <label for="rule-desc">Rule Description</label>
+                <textarea class="form-control" id="rule-desc" placeholder="Enter rule description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Rule</button>
+        </form>
+        <form id="evaluate-form" class="mb-5">
+            <div class="form-group">
+                <label for="rule-id">Rule ID</label>
+                <input type="number" class="form-control" id="rule-id" placeholder="Enter rule ID">
+            </div>
+            <div class="form-group">
+                <label for="user-data">User Data (JSON)</label>
+                <textarea class="form-control" id="user-data" placeholder="Enter user data"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Evaluate Rule</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
