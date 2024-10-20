@@ -14,3 +14,6 @@ This project implements a simple rule engine using an Abstract Syntax Tree (AST)
    ```sh
    git clone https://github.com/your-repo-url.git
    cd rule-engine
+
+## Dockerfile
+Currently blank for future use. Intended for backend containerization.
