@@ -77,7 +77,7 @@ Integration tests validate the full flow of the application, ensuring all compon
 - **Create Rule:** This test checks if a rule can be created and returns its ID.
 - **Evaluate Rule:** This test validates that the rule evaluation returns the correct result.
 
-### 2.  Manual Testing:
+### 3.  Manual Testing:
 Manual testing ensures the application behaves as expected from the user’s perspective.
 #### Running Manual Tests:
 1. **Start the server:**
