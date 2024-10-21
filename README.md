@@ -65,7 +65,7 @@ Unit tests ensure individual functions work as expected. I used Mocha and Chai f
    ```sh
    npx mocha test/ruleService.test.js
    
-### 2.  Integration Testing
+### 2.  Integration Testing:
 Integration tests validate the full flow of the application, ensuring all components work seamlessly together. We use Supertest along with Mocha and Chai for these tests.
 
 #### Running Integartion Tests:
@@ -76,6 +76,33 @@ Integration tests validate the full flow of the application, ensuring all compon
 ##### Test Cases: 
 - **Create Rule:** This test checks if a rule can be created and returns its ID.
 - **Evaluate Rule:** This test validates that the rule evaluation returns the correct result.
+
+### 2.  Manual Testing:
+Manual testing ensures the application behaves as expected from the user’s perspective.
+#### Running Manual Tests:
+1. **Start the server:**
+   ```sh
+   nodemon server.js
+2. **Open the application:** `in your browser at` `http://localhost:3000`
+3. **Creating a Rule:**
+   - Enter Rule Name: "Example Rule"
+   - Enter Rule Description: `((age > 30 AND department = 'Sales') OR (age < 25 AND department = 'Marketing')) AND (salary > 50000 OR experience >5)`
+   - Click on `Create Rule` button
+   - Verify the Response: Ensure a message displays the rule id.
+
+4. **Evaluating a Rule:**
+   - Enter Rule ID: the ID received from creating the rule.
+   - Enter User Data: 
+   ```json
+   {
+      "age": 35,
+      "department": "Sales",
+      "salary": 60000,
+      "experience": 3
+   }
+   - Click on `Evaluate Rule` button
+   - Verify the Result: Ensure the evaluation result is displayed accurately.
+
 ## Dockerfile
 Currently blank for future use. Intended for backend containerization.
 
