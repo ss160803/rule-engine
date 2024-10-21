@@ -100,6 +100,7 @@ Manual testing ensures the application behaves as expected from the user’s per
       "salary": 60000,
       "experience": 3
    }
+   
    - Click on `Evaluate Rule` button
    - Verify the Result: Ensure the evaluation result is displayed accurately.
 
