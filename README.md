@@ -77,7 +77,60 @@ Integration tests validate the full flow of the application, ensuring all compon
 - **Create Rule:** This test checks if a rule can be created and returns its ID.
 - **Evaluate Rule:** This test validates that the rule evaluation returns the correct result.
 
-### 3.  Manual Testing:
+### 3. Validation Testing:
+This section details the validation testing implemented for the Rule Engine project. The validation tests ensure that rule strings and attributes are correctly validated to maintain data integrity and reliability.
+and reliability.
+
+## Testing Approach
+- **Unit Testing**: Validates individual functions in the `ruleServices.js`.
+- **Integration Testing**: Ensures the entire validation workflow functions seamlessly.
+## Validation Logic
+1. **Validation of Rule Strings**:
+   - **Empty Rule String**: Ensures the rule string is not empty.
+   - **Invalid Comparisons**: Catches invalid comparison operators.
+   - **Missing Operators**: Ensures logical operators are present between conditions.
+
+2. **Validation of Attributes**:
+   - **Valid Attributes**: Ensures only predefined valid attributes are used.
+   - **Extraction of Attributes**: Correctly extracts attributes from rule strings.
+   - **Handling of Invalid Attributes**: Catches and handles invalid attributes.
+
+## Running Validation Tests:
+Follow these steps to run the validation tests:
+1. **Navigate to the Project Directory**:
+   ```sh
+   cd path/to/project
+2. **Install Dependencies:**
+   ```sh
+   npm install
+3. **Run Validation Tests:**
+   ```sh
+   npx mocha test/validation.test.js
+## Test Cases:
+1. ## Empty Rule String:
+      - Description: Validates that an error is thrown when the rule string is empty.
+      - Test:
+      ```Javascript
+      expect(() => validateRuleString("")).to.throw("Rule string cannot be empty");
+2. ## Invalid Comparison in Rule String::
+      - Description: Ensures that invalid comparison operators are caught.
+      - Test:
+      ```Javascript
+      expect(() => validateRuleString("age => 30")).to.throw("Invalid comparison in rule string");
+
+3. ## Missing Operators in Rule String:
+      - Description: Validates that logical operators are present between conditions.
+      - Test:
+      ```Javascript
+      expect(() => validateRuleString("age 30")).to.throw("Missing operator in rule string");
+4. ## Invalid Attribute Handling:
+      - Description:  Ensures invalid attributes are caught and handled.
+      - Test:
+      ```Javascript
+      expect(() => validateAttributes("age > 30 AND invalid_attribute = 'Sales'")).to.throw("Invalid attribute: invalid_attribute");
+
+
+### 4.  Manual Testing:
 Manual testing ensures the application behaves as expected from the user’s perspective.
 #### Running Manual Tests:
 1. **Start the server:**
