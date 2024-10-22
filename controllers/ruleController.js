@@ -4,7 +4,17 @@ import { parseRuleString, evaluateAST } from "../services/ruleServices.js";
 // Validate Rule String
 const validateRuleString = (ruleString) => {
   if (!ruleString) throw new Error("Rule string cannot be empty");
-  // Additional checks can be added here
+  // Check for invalid comparisons and missing operators
+  const invalidComparisonRegex = /[^<>=!]=[^<>=]/;
+  if (invalidComparisonRegex.test(ruleString)) {
+    throw new Error("Invalid comparison in rule string");
+  }
+
+  const missingOperatorRegex = /[A-Za-z0-9]+\s+[A-Za-z0-9]+/;
+  if (missingOperatorRegex.test(ruleString)) {
+    throw new Error("Missing operator in rule string");
+  }
+
 };
 
 // Validate Attributes
