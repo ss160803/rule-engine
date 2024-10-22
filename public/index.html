@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rule Engine</title>
+    <title>Rule Engine with AST</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">Rule Engine</h1>
+        <h1 class="mt-5">Rule Engine with AST</h1>
         <form id="rule-form" class="mb-5">
             <div class="form-group">
                 <label for="rule-name">Rule Name</label>
@@ -24,7 +25,7 @@
         <form id="evaluate-form" class="mb-5">
             <div class="form-group">
                 <label for="rule-id">Rule ID</label>
-                <input type="number" class="form-control" id="rule-id" placeholder="Enter rule ID">
+                <input type="text" class="form-control" id="rule-id" placeholder="Enter rule ID">
             </div>
             <div class="form-group">
                 <label for="user-data">User Data (JSON)</label>
@@ -32,7 +33,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Evaluate Rule</button>
         </form>
-        <div id="result"></div>
+        <div id="result" class="alert alert-info" role="alert"></div>
     </div>
     <script src="script.js"></script>
 </body>
